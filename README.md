@@ -4,6 +4,10 @@ Galaxy on Fire Alliances - Autotouch scripts
 ## What is it good for
 GOFA is a touch playing game that requires a lot of time and attention. You basically want to level up and get credits. It's not easy game, however soon you realize that many of these every day playing actions repeat. That's why I've decided to check if these actions can be automated.
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=EGX-i3AX8k4
+" target="_blank"><img src="http://img.youtube.com/vi/EGX-i3AX8k4/0.jpg" 
+alt="Autotouch sample" width="240" height="180" border="10" /></a>
+
 ## About the author
 I'm GOFA player since 2015, you can find me on iOS server W3. At the time this doc was written I was level 956.
 
