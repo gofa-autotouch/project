@@ -9,7 +9,7 @@ require("gofa-config");
 require("gofa-utils");
 
 --The minimum level of mission to launch. Missions below this level will be rejected.
-local minMissionLaunchLevel = 6;
+local minMissionLaunchLevel = 5;
 local numberOfCars = 79;
 --Send cargo to Home3
 local sendCargoToHomePlanetIndex = 3;
@@ -30,7 +30,7 @@ function sendCargoToHomePlanet(homePlanetIndex)
 	tapButton(Config.selectCarsInGroupButton);
 	tapButton(Config.carsGroupNextButtonLocation);
 	tapButton(Config.carsGroupNextButtonLocation);
-	usleep(10000000);
+	ssleep(15, "deliver cargo");
 	tapButton(Config.switchToCarsGroupSelectionButtonLocation);
 	tapButton(Config.closeCarsListButtonLocation);
 end
@@ -61,6 +61,9 @@ function prepareForLaunch()
 end
 
 function getMissionLevel()
+	if (hasPixel(Config.missionLevel5) == 1) then
+		return 5;
+	end
 	if (hasPixel(Config.missionLevel6) == 1) then
 		return 6;
 	end
@@ -98,23 +101,31 @@ function scrollCarShipsBottom()
 end
 
 function launchMissions()
+	launchMissionsWithPreparation(1);
+end
+
+function launchMissionsWithPreparation(prepare)
 	log("launchMissions started");
 	launchedMissions = 0;
 	checkExtras();
-
-	prepareForLaunch();
+	if (prepare == 1) then
+		prepareForLaunch();
+	end
 
 	while (endOfMissionsList() == 0) do
 		if (getMissionLevel() < minMissionLaunchLevel) then
 			log("reject mission");
 			tapButton(Config.missionDetailButtonLocation);
+			waitForPixel(Config.missionDetailViewPixel);
 			tapButton(Config.rejectMissionButtonLocation);
 			tapButton(Config.confirmMissionRejectButtonLocation);
 			waitForMissionsList();
 		else
 			log("launch mission");
 			tapButton(Config.missionDetailButtonLocation);
+			waitForPixel(Config.missionDetailViewPixel);
 			tapButton(Config.launchMissionButtonLocation);
+			waitForCarsList();
 			if (isCarAvailable() == 1) then
 				tapButton(Config.carDetailsButtonLocation);
 				waitForPixel(Config.carShipsLoadPixel);

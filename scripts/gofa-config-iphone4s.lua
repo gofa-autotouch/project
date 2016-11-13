@@ -131,7 +131,11 @@ Config.missionsListScrolledTopPixel = Pixel.new(172, 29, 10368768);
 --Pixel that is unique for missions list
 Config.missionsListPixel = Pixel.new(130, 509, 8432569);
 
+--Pixel that is unique for mission detail view
+Config.missionDetailViewPixel = Pixel.new(129, 59, 14737632);
+
 --Pixel that is unique for mission levels
+Config.missionLevel5 = Pixel.new(229, 390, 119289);
 Config.missionLevel6 = Pixel.new(231, 389, 119289);
 Config.missionLevel7 = Pixel.new(233, 395, 119289);
 Config.missionLevel8 = Pixel.new(227, 393, 119289);

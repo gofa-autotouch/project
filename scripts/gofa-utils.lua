@@ -77,15 +77,17 @@ end
 --the dialog displays details about the long sleep
 --time parameter is time in seconds
 function ssleep(time, message)
-	alert(string.format("Waiting %ds for\n%s\nsince\n%s", time, message, os.date()));
-
+	
+	local message = string.format("Waiting %ds for\n%s\nsince\n%s", time, message, os.date());
 	for i = 1,time do
+		if (time > 9 and i == 3) then
+			alert(message);
+		end
 		usleep(1000000);
+		if (time > 9 and i == time - 5) then
+			tapButton(Config.ssleepDialogCloseButtonLocation);
+		end
 	end
-
-	tapButton(Config.ssleepDialogCloseButtonLocation);
-
-	usleep(Config.animationDelay);
 
 	--it is very probably that a popup appeared while we were sleeping
 	--please note that system alert is always on top even if in game popup appeared, so
