@@ -9,7 +9,7 @@ GOFA is a touch playing game that requires a lot of time and attention. You basi
 alt="Autotouch sample" width="240" height="180" border="10" /></a>
 
 ## About the author
-I'm GOFA player since 2015, you can find me on iOS server W3. At the time this doc was written I was level 956.
+I'm GOFA player since 2015
 
 ## What's in this repository
 This repository contains lua scripts recorded and adjusted by iOS Autotouch application. You don't have to use my scripts, but you can just record your own scripts and play them. However you should at least check my screnarios and read tips in this document.
